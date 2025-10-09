@@ -25,14 +25,7 @@
 @endsection
 @section('content')
 				<!-- row -->
-				<div class="row">
-					
-					<!--/div-->
-
-					<!--div-->
-					
-					<!--/div-->
-
+				<div class="row">		
 					<!--div-->
 					<div class="col-xl-12">
 						<div class="card mg-b-20">
@@ -85,9 +78,7 @@
 							</div>
 						</div>
 					</div>
-					<!--/div-->
-
-					<!--div-->
+					<!--/div-->				
 					
 				</div>
 				</div>
