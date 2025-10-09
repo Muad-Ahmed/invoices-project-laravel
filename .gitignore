@@ -1,0 +1,25 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# تجاهل كل شيء داخل resources/views
+/resources/views/**
+
+# استثناء (عدم تجاهل) مجلدي auth و layouts وما بداخلهما
+!/resources/views/auth/
+!/resources/views/auth/**
+!/resources/views/layouts/
+!/resources/views/layouts/**
+
+####
+/public/assets
+
