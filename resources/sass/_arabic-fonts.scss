@@ -1,0 +1,59 @@
+// Arabic Font Support
+// ===================
+
+// Ensure Cairo font is applied to all Arabic text
+body {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Specific rules for Arabic text
+[dir="rtl"],
+[lang="ar"],
+.arabic,
+.rtl {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+
+    // Ensure proper text direction
+    direction: rtl;
+    text-align: right;
+
+    // Fix spacing issues
+    letter-spacing: 0;
+    word-spacing: normal;
+}
+
+// Apply to common elements
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+a,
+button,
+input,
+textarea,
+select,
+.navbar,
+.card,
+.modal {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Bootstrap specific overrides
+.btn,
+.form-control,
+.nav-link,
+.dropdown-item {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Ensure Arabic text renders correctly
+* {
+    -webkit-font-feature-settings: "liga" 1, "calt" 1;
+    -moz-font-feature-settings: "liga" 1, "calt" 1;
+    font-feature-settings: "liga" 1, "calt" 1;
+}

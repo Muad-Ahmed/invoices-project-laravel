@@ -1,0 +1,125 @@
+// Arabic Text Improvements
+// ========================
+
+// Fix for Arabic text rendering
+.arabic-text {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: embed;
+
+    // Improve line height for Arabic
+    line-height: 1.8;
+
+    // Fix letter spacing
+    letter-spacing: 0;
+    word-spacing: 0.1em;
+}
+
+// Ensure proper Arabic text rendering in all browsers
+* {
+    // Enable font smoothing
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Fix text rendering
+    text-rendering: optimizeLegibility;
+}
+
+// Specific fixes for Arabic numbers and currency
+.currency,
+.price,
+.amount {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    font-variant-numeric: tabular-nums;
+}
+
+// Fix for Arabic text in tables
+table {
+    .arabic-text {
+        direction: rtl;
+        text-align: right;
+    }
+
+    th,
+    td {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    }
+}
+
+// Fix for Arabic text in forms
+.form-group {
+    label {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    }
+
+    .form-control {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+
+        &::placeholder {
+            font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+        }
+    }
+}
+
+// Fix for Arabic text in buttons
+.btn {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    font-weight: 500;
+}
+
+// Fix for Arabic text in navigation
+.navbar {
+    .navbar-brand,
+    .nav-link {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    }
+}
+
+// Fix for Arabic text in cards
+.card {
+    .card-header,
+    .card-title,
+    .card-text {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    }
+}
+
+// Fix for Arabic text in modals
+.modal {
+    .modal-header,
+    .modal-title,
+    .modal-body {
+        font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+    }
+}
+
+// Fix for Arabic text in alerts
+.alert {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Fix for Arabic text in breadcrumbs
+.breadcrumb {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Fix for Arabic text in pagination
+.pagination {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Fix for Arabic text in dropdowns
+.dropdown-menu {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Fix for Arabic text in tooltips
+.tooltip {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
+
+// Fix for Arabic text in popovers
+.popover {
+    font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif !important;
+}
