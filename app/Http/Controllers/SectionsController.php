@@ -15,7 +15,8 @@ class SectionsController extends Controller
      */
     public function index()
     {
-        return view('sections.sections');
+        $sections = sections::all();
+        return view('sections.sections', compact('sections'));
     }
 
     /**
@@ -36,23 +37,25 @@ class SectionsController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $b_exists = sections::where('section_name','=', $input['section_name'])->exists();
+   
+            $validateData = $request->validate([
+                'section_name' => 'required|unique:sections|max:255',
+                'description' => 'required',
+            ],[
 
-        if ($b_exists) {
-            session()->flash('Error','خطأ ، القسم مسجل مسبقاً');
-            return redirect('/sections');
+                'section_name.required' => 'يرجى إدخال اسم القسم',
+                'section_name.unique' =>'اسم القسم مسجل مسبقاً',
+                'description.required' => 'يرجى إدخال بيانات الوصف',
 
-        }
-        else {
+            ]);
+        
             sections::create([
                 'section_name' => $request->section_name,
                 'description' => $request->description,
                 'Created_by' => (Auth::user()->name),
             ]);
-            session()->flash('Add', 'تم إضافة القسم بنجاح');
-             return redirect('/sections');
-        }
+       
+            return redirect()->route('sections.index');
 
     }
 
