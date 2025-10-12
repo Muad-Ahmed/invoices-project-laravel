@@ -15,17 +15,27 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المنتجات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    Empty</span>
+                <h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                    المنتجات</span>
+                </span>
             </div>
         </div>
     </div>
     <!-- breadcrumb -->
 @endsection
 @section('content')
-    @if (session()->has('Add'))
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('add'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ session()->get('Add') }}</strong>
+            <strong style="margin-right: 25px;">{{ session()->get('add') }}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -39,8 +49,8 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal"><i
-                                class="fas fa-plus"></i>&nbsp; اضافة منتج</button><br><br>
+                        <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale"
+                            data-toggle="modal" href="#modaldemo8">إضافة منتج</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -87,7 +97,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">اسم المنتج</label>
-                                <input type="text" class="form-control" id="Product_name" name="Product_name" required>
+                                <input type="text" class="form-control" id="product_name" name="product_name" required>
 
                             </div>
 

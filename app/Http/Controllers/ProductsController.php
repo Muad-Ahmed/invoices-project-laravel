@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\products;
+use App\sections;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -14,7 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('products.products');
+        $sections = sections::all();
+        return view('products.products', compact('sections'));
     }
 
     /**
@@ -35,7 +38,29 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'product_name' => [
+                'required',
+                Rule::unique('products', 'product_name')
+                    ->where('section_id', $request->section_id),
+            ],
+            'section_id' => 'required',
+            Rule::unique('products', 'product_name')
+                ->where('section_id', $request->section_id),
+        ], [
+            'product_name.required' => 'يرجى ادخال اسم المنتج',
+            'section_id.required' => 'يرجى تحديد القسم',
+            'product_name.unique' => 'هذا المنتج موجود بالفعل في القسم المحدد.',
+        ]);
+
+        products::create([
+            'product_name' => $request->product_name,
+            'section_id' => $request->section_id,
+            'description' => $request->description,
+        ]);
+        session()->flash('add', 'تم اضافة المنتج بنجاح');
+        return redirect()->route('products.index');
     }
 
     /**
