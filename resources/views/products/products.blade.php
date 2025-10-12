@@ -23,6 +23,15 @@
     <!-- breadcrumb -->
 @endsection
 @section('content')
+    @if (session()->has('Add'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('Add') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <!-- row -->
     <div class="row">
         <!--div-->
@@ -30,10 +39,9 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">Bordered Table</h4>
-                        <i class="mdi mdi-dots-horizontal text-gray"></i>
+                        <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal"><i
+                                class="fas fa-plus"></i>&nbsp; اضافة منتج</button><br><br>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Example of Valex Bordered Table.. <a href="">Learn more</a></p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -63,6 +71,48 @@
             </div>
         </div>
         <!--/div-->
+        <!-- add -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">اضافة منتج</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('products.store') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">اسم المنتج</label>
+                                <input type="text" class="form-control" id="Product_name" name="Product_name" required>
+
+                            </div>
+
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">القسم</label>
+                            <select name="section_id" id="section_id" class="form-control" required>
+                                <option value="" selected disabled> --حدد القسم--</option>
+                                @foreach ($sections as $section)
+                                    <option value="{{ $section->id }}">{{ $section->section_name }}</option>
+                                @endforeach
+                            </select>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">ملاحظات</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">تاكيد</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- row closed -->
     </div>
