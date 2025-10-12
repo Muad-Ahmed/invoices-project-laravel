@@ -67,13 +67,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>26261616 </td>
-                                    <td>2020-09-13</td>
-                                    <td>2020-12-15</td>
-                                    <td>CC</td>
-                                </tr>
+                                <?php $i = 0; ?>
+                                @foreach ($products as $product)
+                                    <?php $i++; ?>
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $product->product_name }}</td>
+                                        <td>{{ $product->section->section_name }}</td>
+                                        <td>{{ $product->description }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-success btn-sm"
+                                                data-name="{{ $product->product_name }}" data-pro_id="{{ $product->id }}"
+                                                data-section_name="{{ $product->section->section_name }}"
+                                                data-description="{{ $product->description }}" data-toggle="modal"
+                                                data-target="#edit_product">تعديل</button>
+
+                                            <button class="btn btn-outline-danger btn-sm "
+                                                data-pro_id="{{ $product->id }}"
+                                                data-product_name="{{ $product->product_name }}" data-toggle="modal"
+                                                data-target="#modaldemo9">حذف</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -118,6 +133,81 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">تاكيد</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- edit -->
+        <div class="modal fade" id="edit_Product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">تعديل منتج</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action='products/update' method="post">
+                        {{ method_field('patch') }}
+                        {{ csrf_field() }}
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="title">اسم المنتج :</label>
+
+                                <input type="hidden" class="form-control" name="pro_id" id="pro_id"
+                                    value="">
+
+                                <input type="text" class="form-control" name="Product_name" id="Product_name">
+                            </div>
+
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">القسم</label>
+                            <select name="section_name" id="section_name" class="custom-select my-1 mr-sm-2" required>
+                                @foreach ($sections as $section)
+                                    <option>{{ $section->section_name }}</option>
+                                @endforeach
+                            </select>
+
+                            <div class="form-group">
+                                <label for="des">ملاحظات :</label>
+                                <textarea name="description" cols="20" rows="5" id='description' class="form-control"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">تعديل البيانات</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- delete -->
+        <div class="modal fade" id="modaldemo9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">حذف المنتج</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="products/destroy" method="post">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        <div class="modal-body">
+                            <p>هل أنت متأكد من عملية الحذف ؟</p><br>
+                            <input type="hidden" name="pro_id" id="pro_id" value="">
+                            <input class="form-control" name="product_name" id="product_name" type="text" readonly>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                            <button type="submit" class="btn btn-danger">تاكيد</button>
                         </div>
                     </form>
                 </div>
