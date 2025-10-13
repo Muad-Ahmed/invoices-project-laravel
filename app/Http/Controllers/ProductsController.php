@@ -18,7 +18,7 @@ class ProductsController extends Controller
     {
         $sections = sections::all();
         $products = products::all();
-        return view('products.products', compact('sections'));
+        return view('products.products', compact('sections', 'products'));
     }
 
     /**
@@ -47,8 +47,6 @@ class ProductsController extends Controller
                     ->where('section_id', $request->section_id),
             ],
             'section_id' => 'required',
-            Rule::unique('products', 'product_name')
-                ->where('section_id', $request->section_id),
         ], [
             'product_name.required' => 'يرجى ادخال اسم المنتج',
             'section_id.required' => 'يرجى تحديد القسم',
@@ -93,10 +91,7 @@ class ProductsController extends Controller
      * @param  \App\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, products $products)
-    {
-        //
-    }
+    public function update(Request $request, products $products) {}
 
     /**
      * Remove the specified resource from storage.
