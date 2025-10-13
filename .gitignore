@@ -12,16 +12,12 @@ npm-debug.log
 yarn-error.log
 changes.patch
 
-# تجاهل كل شيء داخل resources/views
-/resources/views/**
+# تجاهل الملفات فقط داخل المجلد الرئيسي views (الأبناء المباشرين)
+resources/views/*
 
-# استثناء (عدم تجاهل) مجلدي auth و layouts وما بداخلهما
-!/resources/views/auth/
-!/resources/views/auth/**
-!/resources/views/layouts/
-!/resources/views/layouts/**
-!/resources/views/invoices/
-!/resources/views/invoices/**
+# استثناء جميع المجلدات داخل views
+!resources/views/**/
+
 
 ####
 /public/assets

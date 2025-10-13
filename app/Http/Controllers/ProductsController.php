@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\products;
+use App\sections;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -14,7 +16,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $sections = sections::all();
+        $products = products::all();
+        return view('products.products', compact('sections', 'products'));
     }
 
     /**
@@ -35,7 +39,27 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'product_name' => [
+                'required',
+                Rule::unique('products', 'product_name')
+                    ->where('section_id', $request->section_id),
+            ],
+            'section_id' => 'required',
+        ], [
+            'product_name.required' => 'يرجى ادخال اسم المنتج',
+            'section_id.required' => 'يرجى تحديد القسم',
+            'product_name.unique' => 'هذا المنتج موجود بالفعل في القسم المحدد.',
+        ]);
+
+        products::create([
+            'product_name' => $request->product_name,
+            'section_id' => $request->section_id,
+            'description' => $request->description,
+        ]);
+        session()->flash('add', 'تم اضافة المنتج بنجاح');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -67,9 +91,19 @@ class ProductsController extends Controller
      * @param  \App\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, products $products)
+    public function update(Request $request)
     {
-        //
+        $section = sections::find($request->section_id);
+        $id = $section->id;
+        $product = products::findOrFail($request->pro_id);
+
+        $product->update([
+            'section_id' => $id,
+            'product_name' => $request->product_name,
+            'description' => $request->description,
+        ]);
+        session()->flash('Edit', 'تم تعديل المنتج بنجاح');
+        return back();
     }
 
     /**
@@ -78,8 +112,11 @@ class ProductsController extends Controller
      * @param  \App\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(products $products)
+    public function destroy(Request $request)
     {
-        //
+        $product = products::findOrFail($request->pro_id);
+        $product->delete();
+        session()->flash('delete', 'تم حذف المنتج بنجاح');
+        return back();
     }
 }
