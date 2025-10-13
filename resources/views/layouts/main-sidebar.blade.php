@@ -128,9 +128,6 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'products')) }}">المنتجات</a></li>
                 </ul>
             </li>
-
-
-
         </ul>
     </div>
 </aside>

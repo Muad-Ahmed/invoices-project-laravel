@@ -91,7 +91,20 @@ class ProductsController extends Controller
      * @param  \App\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, products $products) {}
+    public function update(Request $request)
+    {
+        $section = sections::find($request->section_id);
+        $id = $section->id;
+        $product = products::findOrFail($request->pro_id);
+
+        $product->update([
+            'section_id' => $id,
+            'product_name' => $request->product_name,
+            'description' => $request->description,
+        ]);
+        session()->flash('Edit', 'تم تعديل المنتج بنجاح');
+        return back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -99,8 +112,11 @@ class ProductsController extends Controller
      * @param  \App\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(products $products)
+    public function destroy(Request $request)
     {
-        //
+        $product = products::findOrFail($request->pro_id);
+        $product->delete();
+        session()->flash('delete', 'تم حذف المنتج بنجاح');
+        return back();
     }
 }
