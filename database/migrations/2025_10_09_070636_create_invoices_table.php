@@ -14,7 +14,7 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('invoice_number');
             $table->date('invoice_Date');
             $table->date('due_date');
@@ -22,9 +22,9 @@ class CreateInvoicesTable extends Migration
             $table->string('section');
             $table->string('discount');
             $table->string('rate_vat');
-            $table->decimal('value_vat',8,2);
-            $table->decimal('total',8,2);
-            $table->string('status',50);
+            $table->decimal('value_vat', 8, 2);
+            $table->decimal('total', 8, 2);
+            $table->string('status', 50);
             $table->integer('value_status');
             $table->text('note')->nullable();
             $table->string('user');

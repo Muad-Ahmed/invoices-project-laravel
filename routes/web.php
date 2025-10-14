@@ -30,6 +30,8 @@ Route::resource('sections', 'SectionsController');
 
 Route::resource('products', 'ProductsController');
 
+Route::get('/section/{id}', 'InvoicesController@getproducts');
+
 
 
 
