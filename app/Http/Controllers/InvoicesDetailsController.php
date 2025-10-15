@@ -6,6 +6,8 @@ use App\invoice_attachments;
 use App\invoices;
 use App\invoices_details;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class InvoicesDetailsController extends Controller
 {
@@ -59,11 +61,11 @@ class InvoicesDetailsController extends Controller
      */
     public function edit($id)
     {
-        $invoices = invoices::where('id',$id)->first();
-        $details  = invoices_Details::where('id_Invoice',$id)->get();
-        $attachments  = invoice_attachments::where('invoice_id',$id)->get();
+        $invoices = invoices::where('id', $id)->first();
+        $details  = invoices_Details::where('id_Invoice', $id)->get();
+        $attachments  = invoice_attachments::where('invoice_id', $id)->get();
 
-        return view('invoices.details_invoice',compact('invoices','details','attachments'));
+        return view('invoices.details_invoice', compact('invoices', 'details', 'attachments'));
     }
 
     /**
@@ -84,8 +86,35 @@ class InvoicesDetailsController extends Controller
      * @param  \App\invoices_details  $invoices_details
      * @return \Illuminate\Http\Response
      */
-    public function destroy(invoices_details $invoices_details)
+    public function destroy(Request $request)
     {
-        //
+        $invoices = invoice_attachments::findOrFail($request->id_file);
+        $invoices->delete();
+        Storage::disk('public_uploads')->delete($request->invoice_number . '/' . $request->file_name);
+        session()->flash('delete', 'تم حذف المرفق بنجاح');
+        return back();
+    }
+
+    public function get_file($invoice_number, $file_name)
+    {
+        $path = public_path('Attachments/' . $invoice_number . '/' . $file_name);
+
+        if (!file_exists($path)) {
+            abort(404, 'الملف غير موجود');
+        }
+
+        return response()->download($path);
+    }
+
+
+    public function open_file($invoice_number, $file_name)
+    {
+        $path = public_path('Attachments/' . $invoice_number . '/' . $file_name);
+
+        if (!file_exists($path)) {
+            abort(404, 'الملف غير موجود');
+        }
+
+        return response()->file($path);
     }
 }

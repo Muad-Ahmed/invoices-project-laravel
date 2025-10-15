@@ -125,7 +125,7 @@
                                                                 <td><span
                                                                         class="badge badge-pill badge-success">{{ $invoices->Status }}</span>
                                                                 </td>
-                                                            @elseif($invoices->Value_Status ==2)
+                                                            @elseif($invoices->Value_Status == 2)
                                                                 <td><span
                                                                         class="badge badge-pill badge-danger">{{ $invoices->Status }}</span>
                                                                 </td>
@@ -176,7 +176,7 @@
                                                                     <td><span
                                                                             class="badge badge-pill badge-success">{{ $x->Status }}</span>
                                                                     </td>
-                                                                @elseif($x->Value_Status ==2)
+                                                                @elseif($x->Value_Status == 2)
                                                                     <td><span
                                                                             class="badge badge-pill badge-danger">{{ $x->Status }}</span>
                                                                     </td>
@@ -227,7 +227,7 @@
                                                 <br>
 
                                                 <div class="table-responsive mt-15">
-                                                    <table class="table center-aligned-table mb-0 table table-hover"
+                                                    <table class="table center-aligned-table mb-0 table-hover"
                                                         style="text-align:center">
                                                         <thead>
                                                             <tr class="text-dark">
@@ -251,7 +251,8 @@
 
                                                                         <a class="btn btn-outline-success btn-sm"
                                                                             href="{{ url('View_file') }}/{{ $invoices->invoice_number }}/{{ $attachment->file_name }}"
-                                                                            role="button"><i class="fas fa-eye"></i>&nbsp;
+                                                                            role="button"><i
+                                                                                class="fas fa-eye"></i>&nbsp;
                                                                             عرض</a>
 
                                                                         <a class="btn btn-outline-info btn-sm"
@@ -360,7 +361,6 @@
             modal.find('.modal-body #file_name').val(file_name);
             modal.find('.modal-body #invoice_number').val(invoice_number);
         })
-
     </script>
 
     <script>
@@ -369,7 +369,6 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
-
     </script>
 
 @endsection
