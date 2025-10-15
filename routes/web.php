@@ -33,10 +33,9 @@ Route::resource('products', 'ProductsController');
 Route::get('/section/{id}', 'InvoicesController@getproducts');
 
 
+Route::get('/InvoicesDetails/{id}', 'InvoicesDetailsController@getproducts');
 
 
 
-
-
-
+// ###########################################
 Route::get('/{page}', 'AdminController@index');

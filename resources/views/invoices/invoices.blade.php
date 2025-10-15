@@ -76,7 +76,7 @@
 
                     {{-- @can('تصدير EXCEL') --}}
                     <a class="modal-effect btn btn-sm btn-primary" href="{{ url('export_invoices') }}"
-                        style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
+                        style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير Excel</a>
                     {{-- @endcan --}}
 
                 </div>
@@ -105,7 +105,7 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                {{-- @foreach ($invoices as $invoice)
+                                @foreach ($invoices as $invoice)
                                     @php
                                         $i++;
                                     @endphp
@@ -182,7 +182,7 @@
 
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
 
                             </tbody>
                         </table>
