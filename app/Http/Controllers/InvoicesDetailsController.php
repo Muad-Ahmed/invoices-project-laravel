@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\invoice_attachments;
+use App\invoices;
 use App\invoices_details;
 use Illuminate\Http\Request;
 
@@ -55,9 +57,13 @@ class InvoicesDetailsController extends Controller
      * @param  \App\invoices_details  $invoices_details
      * @return \Illuminate\Http\Response
      */
-    public function edit(invoices_details $invoices_details)
+    public function edit($id)
     {
-        //
+        $invoices = invoices::where('id',$id)->first();
+        $details  = invoices_Details::where('id_Invoice',$id)->get();
+        $attachments  = invoice_attachments::where('invoice_id',$id)->get();
+
+        return view('invoices.details_invoice',compact('invoices','details','attachments'));
     }
 
     /**
