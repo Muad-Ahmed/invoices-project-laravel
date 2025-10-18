@@ -100,9 +100,10 @@ class InvoicesController extends Controller
      * @param  \App\invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function show(invoices $invoices)
+    public function show($id)
     {
-        //
+        $invoices = invoices::where('id', $id)->first();
+        return view('invoices.status_update', compact('invoices'));
     }
 
     /**
@@ -179,9 +180,73 @@ class InvoicesController extends Controller
             return redirect('/Archive');
         }
     }
+
+    public function Status_Update($id, Request $request)
+    {
+        $invoices = invoices::findOrFail($id);
+
+        if ($request->Status === 'مدفوعة') {
+
+            $invoices->update([
+                'Value_Status' => 1,
+                'Status' => $request->Status,
+                'Payment_Date' => $request->Payment_Date,
+            ]);
+
+            invoices_Details::create([
+                'id_Invoice' => $request->invoice_id,
+                'invoice_number' => $request->invoice_number,
+                'product' => $request->product,
+                'Section' => $request->Section,
+                'Status' => $request->Status,
+                'Value_Status' => 1,
+                'note' => $request->note,
+                'Payment_Date' => $request->Payment_Date,
+                'user' => (Auth::user()->name),
+            ]);
+        } else {
+            $invoices->update([
+                'Value_Status' => 3,
+                'Status' => $request->Status,
+                'Payment_Date' => $request->Payment_Date,
+            ]);
+            invoices_Details::create([
+                'id_Invoice' => $request->invoice_id,
+                'invoice_number' => $request->invoice_number,
+                'product' => $request->product,
+                'Section' => $request->Section,
+                'Status' => $request->Status,
+                'Value_Status' => 3,
+                'note' => $request->note,
+                'Payment_Date' => $request->Payment_Date,
+                'user' => (Auth::user()->name),
+            ]);
+        }
+        session()->flash('Status_Update');
+        return redirect('/invoices');
+    }
+
     public function getproducts($id)
     {
         $products = DB::table("products")->where("section_id", $id)->pluck("product_name", "id");
         return json_encode($products);
+    }
+
+    public function Invoice_Paid()
+    {
+        $invoices = Invoices::where('Value_Status', 1)->get();
+        return view('invoices.invoices_paid', compact('invoices'));
+    }
+
+    public function Invoice_unPaid()
+    {
+        $invoices = Invoices::where('Value_Status', 2)->get();
+        return view('invoices.invoices_unpaid', compact('invoices'));
+    }
+
+    public function Invoice_Partial()
+    {
+        $invoices = Invoices::where('Value_Status', 3)->get();
+        return view('invoices.invoices_Partial', compact('invoices'));
     }
 }

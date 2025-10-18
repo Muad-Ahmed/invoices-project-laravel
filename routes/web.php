@@ -46,6 +46,14 @@ Route::get('/edit_invoice/{id}', 'InvoicesController@edit');
 
 Route::get('/Status_show/{id}', 'InvoicesController@show')->name('Status_show');
 
+Route::resource('Archive', 'InvoiceAchiveController');
+
+Route::get('Invoice_Paid', 'InvoicesController@Invoice_Paid');
+
+Route::get('Invoice_UnPaid', 'InvoicesController@Invoice_UnPaid');
+
+Route::get('Invoice_Partial', 'InvoicesController@Invoice_Partial');
+
 
 // ###########################################
 Route::get('/{page}', 'AdminController@index');
