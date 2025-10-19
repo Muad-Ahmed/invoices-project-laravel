@@ -59,6 +59,11 @@ Route::get('Print_invoice/{id}', 'InvoicesController@Print_invoice');
 
 Route::get('export_invoices', 'InvoicesController@export');
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('roles', 'RoleController');
+    Route::resource('users', 'UserController');
+});
+
 
 // ###########################################
 Route::get('/{page}', 'AdminController@index');
