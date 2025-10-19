@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InvoicesExport;
 use App\invoice_attachments;
 use App\invoices;
 use App\invoices_details;
+use App\Notifications\AddInvoice;
 use App\sections;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoicesController extends Controller
 {
@@ -90,6 +95,15 @@ class InvoicesController extends Controller
             $imageName = $request->pic->getClientOriginalName();
             $request->pic->move(public_path('Attachments/' . $invoice_number), $imageName);
         }
+
+        $user = User::first();
+        Notification::send($user, new AddInvoice($invoice_id));
+
+        // $user = User::get();
+        // $invoices = invoices::latest()->first();
+        // Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
+
+
         session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
         return back();
     }
@@ -248,5 +262,17 @@ class InvoicesController extends Controller
     {
         $invoices = Invoices::where('Value_Status', 3)->get();
         return view('invoices.invoices_Partial', compact('invoices'));
+    }
+
+    public function Print_invoice($id)
+    {
+        $invoices = invoices::where('id', $id)->first();
+        return view('invoices.Print_invoice', compact('invoices'));
+    }
+
+    public function export()
+    {
+
+        return Excel::download(new InvoicesExport, 'invoices.xlsx');
     }
 }
