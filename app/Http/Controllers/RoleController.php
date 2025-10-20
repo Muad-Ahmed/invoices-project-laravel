@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -17,10 +17,11 @@ class RoleController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index', 'store']]);
-        $this->middleware('permission:role-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:role-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+
+        $this->middleware('permission:عرض صلاحية', ['only' => ['index']]);
+        $this->middleware('permission:اضافة صلاحية', ['only' => ['create', 'store']]);
+        $this->middleware('permission:تعديل صلاحية', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف صلاحية', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
