@@ -26,38 +26,42 @@
 @section('content')
 
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+@if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-exclamation-circle me-2"></i> {{-- أيقونة خطأ --}}
+            <strong class="me-2">حدث خطأ ما!</strong>
         </div>
-    @endif
+        <ul class="mb-0 mt-2 small">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
 
-    @if (session()->has('Add'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ session()->get('Add') }}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+@if (session()->has('Add'))
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 d-flex align-items-center" role="alert">
+        <i class="fas fa-check-circle me-2"></i> {{-- أيقونة نجاح --}}
+        <div>
+            <strong>تم بنجاح:</strong> {{ session()->get('Add') }}
         </div>
-    @endif
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
 
-
-    @if (session()->has('delete'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>{{ session()->get('delete') }}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+@if (session()->has('delete'))
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 d-flex align-items-center" role="alert">
+        <i class="fas fa-trash-alt me-2"></i> {{-- أيقونة حذف --}}
+        <div>
+            <strong>تنبيه:</strong> {{ session()->get('delete') }}
         </div>
-    @endif
-
-
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
     <!-- row opened -->
     <div class="row row-sm">
