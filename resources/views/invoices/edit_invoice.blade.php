@@ -17,15 +17,36 @@
 
 @section('page-header')
     <!-- breadcrumb -->
-    <div class="breadcrumb-header justify-content-between">
+    <div class="breadcrumb-header justify-content-between align-items-center py-3 mb-4 border-bottom bg-white shadow-sm px-3 rounded">
         <div class="my-auto">
-            <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الفواتير</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    تعديل فاتورة</span>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0 bg-transparent">
+                    <li class="breadcrumb-item">
+                        <a href="#" class="text-primary fw-bold text-decoration-none">
+                            <i class="fas fa-file-invoice me-1"></i> الفواتير
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active text-muted" aria-current="page">
+                        <span class="mx-2 text-secondary">/</span> تعديل فاتورة
+                    </li>
+                </ol>
+            </nav>
+            <div class="d-flex align-items-center mt-2">
+                <h4 class="content-title mb-0 fw-bold text-dark">تعديل الفاتورة</h4>
+                <span class="badge bg-soft-primary text-primary ms-3 px-2 py-1 tx-12">
+                    <i class="fas fa-edit small me-1"></i> تحرير البيانات
+                </span>
             </div>
         </div>
+        
+    
+        <div class="d-flex shadow-sm">
+            <a href="{{ url('invoices') }}" class="btn btn-sm btn-outline-secondary btn-with-icon">
+                <i class="fas fa-arrow-right"></i> العودة للقائمة
+            </a>
+        </div>
     </div>
-    <!-- breadcrumb -->
+    <!-- breadcrumb closed -->
 @endsection
 @section('content')
 
