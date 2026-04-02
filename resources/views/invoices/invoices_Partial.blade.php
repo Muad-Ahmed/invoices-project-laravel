@@ -30,26 +30,26 @@
 @section('content')
 
     @if (session()->has('delete_invoice'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم حذف الفاتورة بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
+        <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-check-circle me-2"></i> <div>
+                    <strong>تمت العملية!</strong> {{ session()->get('delete_invoice') ?? 'تم حذف الفاتورة بنجاح' }}
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
-
-
+    
     @if (session()->has('Status_Update'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم تحديث حالة الدفع بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
+        <div class="alert alert-info alert-dismissible fade show border-0 shadow-sm" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-info-circle me-2"></i>
+                <div>
+                    <strong>تنبيه:</strong> {{ session()->get('Status_Update') ?? 'تم تحديث حالة الدفع بنجاح' }}
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
     <!-- row -->
