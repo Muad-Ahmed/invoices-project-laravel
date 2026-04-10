@@ -29,30 +29,19 @@
 @endsection
 @section('content')
 
-    @if (session()->has('delete_invoice'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم حذف الفاتورة بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
-    @endif
+   @if (session()->has('delete_invoice'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>تمت العملية!</strong> {{ session()->get('delete_invoice') ?? 'تم حذف الفاتورة بنجاح' }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
-
-    @if (session()->has('Status_Update'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم تحديث حالة الدفع بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
-    @endif
-
-    <!-- row -->
+@if (session()->has('Status_Update'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>تمت العملية!</strong> {{ session()->get('Status_Update') ?? 'تم تحديث حالة الدفع بنجاح' }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif    <!-- row -->
     <div class="row">
         <!--div-->
         <div class="col-xl-12">
