@@ -5,18 +5,27 @@
     تغير حالة الدفع
 @stop
 @section('page-header')
-    <!-- breadcrumb -->
-    <div class="breadcrumb-header justify-content-between">
+    <div class="breadcrumb-header justify-content-between align-items-center py-3 mb-4 border-bottom">
         <div class="my-auto">
-            <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الفواتير</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    تغير حالة الدفع</span>
-            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 shadow-sm p-2 bg-light rounded">
+                    <li class="breadcrumb-item">
+                        <h4 class="content-title d-inline-block mb-0 text-primary fw-bold">الفواتير</h4>
+                    </li>
+                    <li class="breadcrumb-item active text-muted" aria-current="page">
+                        تغير حالة الدفع
+                    </li>
+                </ol>
+            </nav>
         </div>
-
+        
+        <div class="d-flex my-xl-auto right-content">
+            <a href="{{ url()->previous() }}" class="btn btn-outline-secondary btn-sm shadow-sm">
+                <i class="fas fa-arrow-right ml-1"></i> رجوع
+            </a>
+        </div>
     </div>
-    <!-- breadcrumb -->
-@endsection
+    @endsection
 @section('content')
     <!-- row -->
     <div class="row">
