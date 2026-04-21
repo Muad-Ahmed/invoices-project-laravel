@@ -17,51 +17,46 @@
 						</div>
 					</div>
 					<div class="main-header-right">
-						<ul class="nav">
-							<li class="">
-								<div class="dropdown  nav-itemd-none d-md-flex">
-									<a href="#" class="d-flex  nav-item nav-link pl-0 country-flag1" data-toggle="dropdown" aria-expanded="false">
-										<span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/us_flag.jpg')}}" alt="img"></span>
-										<div class="my-auto">
-											<strong class="mr-2 ml-2 my-auto">English</strong>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow" x-placement="bottom-end">
-										<a href="#" class="dropdown-item d-flex ">
-											<span class="avatar  ml-3 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/french_flag.jpg')}}" alt="img"></span>
-											<div class="d-flex">
-												<span class="mt-2">French</span>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex">
-											<span class="avatar  ml-3 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/germany_flag.jpg')}}" alt="img"></span>
-											<div class="d-flex">
-												<span class="mt-2">Germany</span>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex">
-											<span class="avatar ml-3 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/italy_flag.jpg')}}" alt="img"></span>
-											<div class="d-flex">
-												<span class="mt-2">Italy</span>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex">
-											<span class="avatar ml-3 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/russia_flag.jpg')}}" alt="img"></span>
-											<div class="d-flex">
-												<span class="mt-2">Russia</span>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex">
-											<span class="avatar  ml-3 align-self-center bg-transparent"><img src="{{URL::asset('assets/img/flags/spain_flag.jpg')}}" alt="img"></span>
-											<div class="d-flex">
-												<span class="mt-2">spain</span>
-											</div>
-										</a>
-									</div>
-								</div>
-							</li>
-						</ul>
-						<div class="nav nav-item  navbar-nav-right ml-auto">
+                            <ul class="nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar avatar-sm mr-2">
+                                            <img src="{{URL::asset('assets/img/flags/us_flag.jpg')}}" alt="English" class="rounded-circle" style="width: 20px; height: 20px; object-fit: cover;">
+                                        </div>
+                                        <span class="d-none d-md-inline font-weight-bold">English</span>
+                                    </a>
+                            
+                                    <div class="dropdown-menu dropdown-menu-right shadow-sm" aria-labelledby="languageDropdown">
+                                        
+                                        <a href="#" class="dropdown-item d-flex align-items-center">
+                                            <img src="{{URL::asset('assets/img/flags/french_flag.jpg')}}" alt="French" class="mr-3 rounded-circle" width="20">
+                                            <span>French</span>
+                                        </a>
+                            
+                                        <a href="#" class="dropdown-item d-flex align-items-center">
+                                            <img src="{{URL::asset('assets/img/flags/germany_flag.jpg')}}" alt="Germany" class="mr-3 rounded-circle" width="20">
+                                            <span>Germany</span>
+                                        </a>
+                            
+                                        <a href="#" class="dropdown-item d-flex align-items-center">
+                                            <img src="{{URL::asset('assets/img/flags/italy_flag.jpg')}}" alt="Italy" class="mr-3 rounded-circle" width="20">
+                                            <span>Italy</span>
+                                        </a>
+                            
+                                        <a href="#" class="dropdown-item d-flex align-items-center">
+                                            <img src="{{URL::asset('assets/img/flags/russia_flag.jpg')}}" alt="Russia" class="mr-3 rounded-circle" width="20">
+                                            <span>Russia</span>
+                                        </a>
+                            
+                                        <a href="#" class="dropdown-item d-flex align-items-center">
+                                            <img src="{{URL::asset('assets/img/flags/spain_flag.jpg')}}" alt="Spain" class="mr-3 rounded-circle" width="20">
+                                            <span>Spain</span>
+                                        </a>
+                                        
+                                    </div>
+                                </li>
+                            </ul>	
+                        <div class="nav nav-item  navbar-nav-right ml-auto">
 							<div class="nav-link" id="bs-example-navbar-collapse-1">
 								<form class="navbar-form" role="search">
 									<div class="input-group">
