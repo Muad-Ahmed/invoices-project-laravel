@@ -1,18 +1,27 @@
 <!-- main-sidebar -->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar sidebar-scroll">
-    <div class="main-sidebar-header active">
-        <a class="desktop-logo logo-light active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/logo.png') }}" class="main-logo" alt="logo"></a>
-        <a class="desktop-logo logo-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/logo-white.png') }}" class="main-logo dark-theme"
-                alt="logo"></a>
-        <a class="logo-icon mobile-logo icon-light active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/favicon.png') }}" class="logo-icon" alt="logo"></a>
-        <a class="logo-icon mobile-logo icon-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/favicon-white.png') }}" class="logo-icon dark-theme"
-                alt="logo"></a>
+    <div class="main-sidebar-header d-flex align-items-center justify-content-center px-3 py-2 border-bottom">
+    
+    <div class="desktop-logos d-none d-lg-block">
+        <a class="desktop-logo logo-light active" href="{{ url('index') }}">
+            <img src="{{ URL::asset('assets/img/brand/logo.png') }}" class="img-fluid" style="max-height: 40px;" alt="logo">
+        </a>
+        <a class="desktop-logo logo-dark" href="{{ url('index') }}">
+            <img src="{{ URL::asset('assets/img/brand/logo-white.png') }}" class="img-fluid" style="max-height: 40px;" alt="logo">
+        </a>
     </div>
+
+    <div class="mobile-logos d-lg-none">
+        <a class="logo-icon mobile-logo icon-light active" href="{{ url('index') }}">
+            <img src="{{ URL::asset('assets/img/brand/favicon.png') }}" class="img-fluid" style="width: 32px;" alt="logo">
+        </a>
+        <a class="logo-icon mobile-logo icon-dark" href="{{ url('index') }}">
+            <img src="{{ URL::asset('assets/img/brand/favicon-white.png') }}" class="img-fluid" style="width: 32px;" alt="logo">
+        </a>
+    </div>
+    
+</div>
     <div class="main-sidemenu">
         <div class="app-sidebar__user clearfix">
             <div class="dropdown user-pro-body">
