@@ -4,46 +4,54 @@
 				<div class="modal-content chat border-0">
 					<div class="card overflow-hidden mb-0 border-0">
 						<!-- action-header -->
-						<div class="action-header clearfix">
-							<div class="float-left hidden-xs d-flex ml-2">
-								<div class="img_cont mr-3">
-									<img src="{{URL::asset('assets/img/faces/6.jpg')}}" class="rounded-circle user_img" alt="img">
-								</div>
-								<div class="align-items-center mt-2">
-									<h4 class="text-white mb-0 font-weight-semibold">Daneil Scott</h4>
-									<span class="dot-label bg-success"></span><span class="mr-3 text-white">online</span>
-								</div>
-							</div>
-							<ul class="ah-actions actions align-items-center">
-								<li class="call-icon">
-									<a href="" class="d-done d-md-block phone-button" data-toggle="modal" data-target="#audiomodal">
-										<i class="si si-phone"></i>
-									</a>
-								</li>
-								<li class="video-icon">
-									<a href="" class="d-done d-md-block phone-button" data-toggle="modal" data-target="#videomodal">
-										<i class="si si-camrecorder"></i>
-									</a>
-								</li>
-								<li class="dropdown">
-									<a href="" data-toggle="dropdown" aria-expanded="true">
-										<i class="si si-options-vertical"></i>
-									</a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><i class="fa fa-user-circle"></i> View profile</li>
-										<li><i class="fa fa-users"></i>Add friends</li>
-										<li><i class="fa fa-plus"></i> Add to group</li>
-										<li><i class="fa fa-ban"></i> Block</li>
-									</ul>
-								</li>
-								<li>
-									<a href=""  class="" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true"><i class="si si-close text-white"></i></span>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<!-- action-header end -->
+                        <div class="action-header d-flex align-items-center justify-content-between p-3 bg-primary rounded-top">
+                            <div class="d-flex align-items-center">
+                                <div class="position-relative mr-3">
+                                    <img src="{{URL::asset('assets/img/faces/6.jpg')}}" 
+                                         class="rounded-circle border border-white shadow-sm" 
+                                         alt="user-img" 
+                                         style="width: 50px; height: 50px; object-fit: cover;">
+                                    <span class="position-absolute border border-white rounded-circle bg-success" 
+                                          style="bottom: 2px; right: 2px; width: 12px; height: 12px;"></span>
+                                </div>
+                                <div class="d-none d-sm-block">
+                                    <h5 class="text-white mb-0 font-weight-bold">Daneil Scott</h5>
+                                    <small class="text-white-50">
+                                        <i class="fa fa-circle text-success small mr-1"></i> Online
+                                    </small>
+                                </div>
+                            </div>
+                        
+                            <ul class="nav align-items-center list-unstyled mb-0">
+                                <li class="nav-item">
+                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2 shadow-none" data-toggle="modal" data-target="#audiomodal">
+                                        <i class="si si-phone"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2 shadow-none" data-toggle="modal" data-target="#videomodal">
+                                        <i class="si si-camrecorder"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2" data-toggle="dropdown">
+                                        <i class="si si-options-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow border-0 mt-2">
+                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-user-circle mr-2 text-muted"></i> View profile</a>
+                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-users mr-2 text-muted"></i> Add friends</a>
+                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-plus mr-2 text-muted"></i> Add to group</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item py-2 text-danger" href="#"><i class="fa fa-ban mr-2"></i> Block</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="btn btn-link text-white p-0 ml-2" data-dismiss="modal">
+                                        <i class="si si-close shadow-none"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>						<!-- action-header end -->
 
 						<!-- msg_card_body -->
 						<div class="card-body msg_card_body">
