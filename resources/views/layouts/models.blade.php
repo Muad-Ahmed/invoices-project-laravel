@@ -160,18 +160,16 @@
 						</div>
 						<!-- msg_card_body end -->
 						<!-- card-footer -->
-						<div class="card-footer">
-							<div class="msb-reply d-flex">
-								<div class="input-group">
-									<input type="text" class="form-control " placeholder="Typing....">
-									<div class="input-group-append ">
-										<button type="button" class="btn btn-primary ">
-											<i class="far fa-paper-plane" aria-hidden="true"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div><!-- card-footer end -->
+					<div class="card-footer bg-white border-0 p-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-pill border-0 bg-light shadow-none" placeholder="اكتب رسالتك هنا...">
+                            
+                            <button type="button" class="btn btn-primary rounded-circle ms-2" style="width: 45px; height: 45px;">
+                                <i class="far fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                        <!-- card-footer end -->
 					</div>
 				</div>
 			</div>
