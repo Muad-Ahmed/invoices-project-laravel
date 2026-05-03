@@ -4,54 +4,54 @@
 				<div class="modal-content chat border-0">
 					<div class="card overflow-hidden mb-0 border-0">
 						<!-- action-header -->
-                        <div class="action-header d-flex align-items-center justify-content-between p-3 bg-primary rounded-top">
+                      <div class="action-header d-flex align-items-center justify-content-between p-3 bg-primary text-white rounded-top shadow-sm">
                             <div class="d-flex align-items-center">
-                                <div class="position-relative mr-3">
+                                <div class="position-relative me-3">
                                     <img src="{{URL::asset('assets/img/faces/6.jpg')}}" 
-                                         class="rounded-circle border border-white shadow-sm" 
+                                         class="rounded-circle border border-2 border-white shadow-sm" 
                                          alt="user-img" 
                                          style="width: 50px; height: 50px; object-fit: cover;">
                                     <span class="position-absolute border border-white rounded-circle bg-success" 
                                           style="bottom: 2px; right: 2px; width: 12px; height: 12px;"></span>
                                 </div>
                                 <div class="d-none d-sm-block">
-                                    <h5 class="text-white mb-0 font-weight-bold">Daneil Scott</h5>
-                                    <small class="text-white-50">
-                                        <i class="fa fa-circle text-success small mr-1"></i> Online
+                                    <h6 class="mb-0 fw-bold">Daneil Scott</h6>
+                                    <small class="text-white-75">
+                                        <i class="fa fa-circle text-success small me-1"></i> Online
                                     </small>
                                 </div>
                             </div>
                         
                             <ul class="nav align-items-center list-unstyled mb-0">
                                 <li class="nav-item">
-                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2 shadow-none" data-toggle="modal" data-target="#audiomodal">
-                                        <i class="si si-phone"></i>
-                                    </a>
+                                    <button class="btn btn-sm btn-link text-white opacity-75 hover-opacity-100 p-2" data-bs-toggle="modal" data-bs-target="#audiomodal">
+                                        <i class="si si-phone fs-5"></i>
+                                    </button>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2 shadow-none" data-toggle="modal" data-target="#videomodal">
-                                        <i class="si si-camrecorder"></i>
-                                    </a>
+                                    <button class="btn btn-sm btn-link text-white opacity-75 hover-opacity-100 p-2" data-bs-toggle="modal" data-bs-target="#videomodal">
+                                        <i class="si si-camrecorder fs-5"></i>
+                                    </button>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a href="#" class="btn btn-outline-light btn-sm border-0 rounded-circle mr-2" data-toggle="dropdown">
-                                        <i class="si si-options-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow border-0 mt-2">
-                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-user-circle mr-2 text-muted"></i> View profile</a>
-                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-users mr-2 text-muted"></i> Add friends</a>
-                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-plus mr-2 text-muted"></i> Add to group</a>
+                                    <button class="btn btn-sm btn-link text-white opacity-75 hover-opacity-100 p-2" data-bs-toggle="dropdown">
+                                        <i class="si si-options-vertical fs-5"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-user-circle me-2 text-muted"></i> View profile</a>
+                                        <a class="dropdown-item py-2" href="#"><i class="fa fa-users me-2 text-muted"></i> Add friends</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item py-2 text-danger" href="#"><i class="fa fa-ban mr-2"></i> Block</a>
+                                        <a class="dropdown-item py-2 text-danger" href="#"><i class="fa fa-ban me-2"></i> Block</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="#" class="btn btn-link text-white p-0 ml-2" data-dismiss="modal">
-                                        <i class="si si-close shadow-none"></i>
-                                    </a>
+                                <li class="nav-item ms-2">
+                                    <button class="btn btn-sm btn-link text-white p-2" data-bs-dismiss="modal">
+                                        <i class="si si-close fs-5"></i>
+                                    </button>
                                 </li>
                             </ul>
-                        </div>						<!-- action-header end -->
+                        </div>			
+                        <!-- action-header end -->
 
 						<!-- msg_card_body -->
 						<div class="card-body msg_card_body">
