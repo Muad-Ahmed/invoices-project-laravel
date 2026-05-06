@@ -160,15 +160,20 @@
 						</div>
 						<!-- msg_card_body end -->
 						<!-- card-footer -->
-					<div class="card-footer bg-white border-0 p-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control rounded-pill border-0 bg-light shadow-none" placeholder="اكتب رسالتك هنا...">
-                            
-                            <button type="button" class="btn btn-primary rounded-circle ms-2" style="width: 45px; height: 45px;">
+    					<div class="card-footer bg-white border-top p-3">
+                          <div class="input-group align-items-center">
+                            <input type="text" 
+                                   class="form-control rounded-pill bg-light border-0 px-4 shadow-none" 
+                                   placeholder="اكتب رسالتك هنا..." 
+                                   style="height: 48px;">
+                                   
+                            <button type="button" 
+                                    class="btn btn-primary rounded-circle shadow-sm ms-2" 
+                                    style="width: 48px; height: 48px; flex-shrink: 0;">
                                 <i class="far fa-paper-plane" aria-hidden="true"></i>
                             </button>
+                          </div>
                         </div>
-                    </div>
                         <!-- card-footer end -->
 					</div>
 				</div>
