@@ -181,34 +181,80 @@
 		</div>
 
 		<!--Video Modal -->
-		<div id="videomodal" class="modal fade">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content bg-dark border-0 text-white">
-					<div class="modal-body mx-auto text-center p-7">
-						<h5>Valex Video call</h5>
-						<img src="{{URL::asset('assets/img/faces/6.jpg')}}" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
-						<h4 class="mb-1 font-weight-semibold">Daneil Scott</h4>
-						<h6>Calling...</h6>
-						<div class="mt-5">
-							<div class="row">
-								<div class="col-4">
-									<a class="icon icon-shape rounded-circle mb-0 mr-3" href="#">
-										<i class="fas fa-video-slash"></i>
-									</a>
-								</div>
-								<div class="col-4">
-									<a class="icon icon-shape rounded-circle text-white mb-0 mr-3" href="#" data-dismiss="modal" aria-label="Close">
-										<i class="fas fa-phone bg-danger text-white"></i>
-									</a>
-								</div>
-								<div class="col-4">
-									<a class="icon icon-shape rounded-circle mb-0 mr-3" href="#">
-										<i class="fas fa-microphone-slash"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div><!-- modal-body -->
+		<!-- Modal Video Call -->
+            <div id="videomodal" class="modal fade" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content bg-dark border-0 text-white shadow-lg" style="border-radius: 20px;">
+                        <div class="modal-body text-center py-5">
+                            
+                            <!-- عنوان النافذة -->
+                            <div class="mb-4">
+                                <span class="badge rounded-pill bg-secondary px-3 py-2 text-uppercase" style="letter-spacing: 1px;">
+                                    <i class="fas fa-video me-2"></i> Valex Video Call
+                                </span>
+                            </div>
+            
+                            <!-- صورة المستخدم مع تأثير النبض (Pulse Animation) -->
+                            <div class="position-relative d-inline-block mb-4">
+                                <img src="{{URL::asset('assets/img/faces/6.jpg')}}" 
+                                     class="rounded-circle border border-3 border-secondary shadow" 
+                                     style="width: 120px; height: 120px; object-fit: cover;" alt="img">
+                                <div class="spinner-grow text-success position-absolute bottom-0 end-0" role="status" style="width: 20px; height: 20px;"></div>
+                            </div>
+            
+                            <!-- معلومات المتصل -->
+                            <h3 class="fw-bold mb-1">Daneil Scott</h3>
+                            <p class="text-muted mb-5 animate-flicker">Calling...</p>
+            
+                            <!-- أزرار التحكم -->
+                            <div class="container">
+                                <div class="row justify-content-center g-3">
+                                    <!-- كتم الفيديو -->
+                                    <div class="col-4">
+                                        <button class="btn btn-outline-light rounded-circle p-3 w-100 shadow-sm" title="Mute Video">
+                                            <i class="fas fa-video-slash fs-5"></i>
+                                        </button>
+                                    </div>
+            
+                                    <!-- إنهاء المكالمة -->
+                                    <div class="col-4">
+                                        <button class="btn btn-danger rounded-circle p-3 w-100 shadow" data-bs-dismiss="modal">
+                                            <i class="fas fa-phone-slash fs-4" style="transform: rotate(225deg);"></i>
+                                        </button>
+                                    </div>
+            
+                                    <!-- كتم الميكروفون -->
+                                    <div class="col-4">
+                                        <button class="btn btn-outline-light rounded-circle p-3 w-100 shadow-sm" title="Mute Mic">
+                                            <i class="fas fa-microphone-slash fs-5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                /* تأثير وميض لكلمة Calling */
+                .animate-flicker {
+                    animation: flicker 1.5s infinite;
+                }
+                @keyframes flicker {
+                    0% { opacity: 0.4; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0.4; }
+                }
+                
+                /* تحسين شكل الأزرار عند التحويم */
+                .btn-outline-light:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: white;
+                }
+            </style>
+                    <!-- modal-body -->
 				</div>
 			</div><!-- modal-dialog -->
 		</div><!-- modal -->
