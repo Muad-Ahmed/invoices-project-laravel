@@ -260,34 +260,57 @@
 		</div><!-- modal -->
 
 		<!-- Audio Modal -->
-		<div id="audiomodal" class="modal fade">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content border-0">
-					<div class="modal-body mx-auto text-center p-7">
-						<h5>Valex Voice call</h5>
-						<img src="{{URL::asset('assets/img/faces/6.jpg')}}" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
-						<h4 class="mb-1  font-weight-semibold">Daneil Scott</h4>
-						<h6>Calling...</h6>
-						<div class="mt-5">
-							<div class="row">
-								<div class="col-4">
-									<a class="icon icon-shape rounded-circle mb-0 mr-3" href="#">
-										<i class="fas fa-volume-up bg-light"></i>
-									</a>
-								</div>
-								<div class="col-4">
-									<a class="icon icon-shape rounded-circle text-white mb-0 mr-3" href="#" data-dismiss="modal" aria-label="Close">
-										<i class="fas fa-phone text-white bg-success"></i>
-									</a>
-								</div>
-								<div class="col-4">
-									<a class="icon icon-shape  rounded-circle mb-0 mr-3" href="#">
-										<i class="fas fa-microphone-slash bg-light"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div><!-- modal-body -->
+            <div id="audiomodal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; background: linear-gradient(145deg, #ffffff, #f0f0f0);">
+                        <div class="modal-body text-center p-5">
+                            <h6 class="text-uppercase tracking-widest text-muted mb-4" style="font-size: 0.8rem; letter-spacing: 2px;">Valex Voice Call</h6>
+                            
+                            <div class="mb-4">
+                                <img src="{{URL::asset('assets/img/faces/6.jpg')}}" 
+                                     class="rounded-circle shadow-sm p-1 bg-white" 
+                                     style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #e9ecef;" 
+                                     alt="img">
+                            </div>
+            
+                            <h3 class="fw-bold mb-1" style="color: #334155;">Daneil Scott</h3>
+                            <h6 class="text-primary fw-light animate-pulse">Calling...</h6>
+            
+                            <div class="mt-5">
+                                <div class="row justify-content-center g-3">
+                                    <div class="col-4">
+                                        <a class="btn btn-light rounded-circle d-flex align-items-center justify-content-center mx-auto shadow-sm" 
+                                           href="#" style="width: 55px; height: 55px;">
+                                            <i class="fas fa-microphone-slash text-secondary"></i>
+                                        </a>
+                                        <small class="d-block mt-2 text-muted">Mute</small>
+                                    </div>
+            
+                                    <div class="col-4">
+                                        <a class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center mx-auto shadow-lg" 
+                                           href="#" data-bs-dismiss="modal" 
+                                           style="width: 65px; height: 65px; margin-top: -5px;">
+                                            <i class="fas fa-phone-slash fs-4 text-white"></i>
+                                        </a>
+                                        <small class="d-block mt-2 fw-bold text-danger">End</small>
+                                    </div>
+            
+                                    <div class="col-4">
+                                        <a class="btn btn-light rounded-circle d-flex align-items-center justify-content-center mx-auto shadow-sm" 
+                                           href="#" style="width: 55px; height: 55px;">
+                                            <i class="fas fa-volume-up text-secondary"></i>
+                                        </a>
+                                        <small class="d-block mt-2 text-muted">Speaker</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                    <!-- modal-body -->
 				</div>
 			</div><!-- modal-dialog -->
 		</div>
